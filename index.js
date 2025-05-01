@@ -20,6 +20,16 @@ const connectedUsers = new Map();
 // control de las acciones de socket
 io.on('connection', socket => socketHandlers(socket, connectedUsers, io));
 
+
+
+// Imprimir las variables de entorno antes de iniciar el servidor
+console.log('MYSQL_HOST:', process.env.MYSQL_HOST);
+console.log('MYSQL_USER:', process.env.MYSQL_USER);
+console.log('MYSQL_PASSWORD:', process.env.MYSQL_PASSWORD);
+console.log('MYSQL_DB_NAME:', process.env.MYSQL_DB_NAME);
+console.log('MYSQL_PORT:', process.env.MYSQL_PORT);
+
+
 server.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}/`);
 });
