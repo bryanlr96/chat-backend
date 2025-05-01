@@ -9,7 +9,13 @@ export class HttpModel {
     // Función para obtener el usuario basado en el correo y la contraseña
     static async login({ email, pass }) {
         const connection = await pool.getConnection(); // Obtener una conexión del pool
-
+        connection.connect((err) => {
+            if (err) {
+              console.error('Error de conexión:', err);
+            } else {
+              console.log('Conexión exitosa');
+            }
+          });
         try {
             const [users] = await connection.query(
                 "SELECT BIN_TO_UUID(id) AS id, email, pass, userName FROM userTable WHERE email = ?;",
