@@ -6,7 +6,7 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin:'https://TU_FRONTEND.vercel.app',
+    origin:'https://chat-xi-ten-65.vercel.app',
     credentials: true,
 }))
 
