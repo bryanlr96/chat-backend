@@ -6,7 +6,7 @@ import { socketHandlers } from './routes/socketRoutes.js';
 
 const port = process.env.PORT ?? 3000;
 const server = http.createServer(app);
-const io = new Server(server, {
+const io = new Server(server,{
   cors: {
     origin: 'https://chat-xi-ten-65.vercel.app', // URL de tu frontend
     methods: ['GET', 'POST'],
@@ -21,11 +21,6 @@ const connectedUsers = new Map();
 io.on('connection', socket => socketHandlers(socket, connectedUsers, io));
 
 
-try {
-  server.listen(port, () => {
-    console.log(`Server running on port http://localhost:${port}/`);
-  });
-} catch (error) {
-  console.error('Error starting the server:', error);
-  process.exit(1);  // Esto forzará la salida del contenedor si algo falla
-}
+server.listen(port, () => {
+  console.log(`Server running on port http://localhost:${port}/`);
+});
