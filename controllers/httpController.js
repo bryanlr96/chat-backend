@@ -18,6 +18,14 @@ export class HttpController {
 
   // Login
   static async login(req, res) {
+
+    // Imprimir las variables de entorno antes de iniciar el servidor
+    console.log('MYSQL_HOST:', process.env.MYSQL_HOST);
+    console.log('MYSQL_USER:', process.env.MYSQL_USER);
+    console.log('MYSQL_PASSWORD:', process.env.MYSQL_PASSWORD);
+    console.log('MYSQL_DB_NAME:', process.env.MYSQL_DB_NAME);
+    console.log('MYSQL_PORT:', process.env.MYSQL_PORT);
+
     const request = validateLoginReq(req.body)//comprobacion de la info de la req
     if (request.error) return res.status(400).json({ message: request.error.issues[0].message })
 
