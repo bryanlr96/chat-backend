@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 const io = new Server(server,{
   cors: {
-    origin: 'https://chat-xi-ten-65.vercel.app', // URL de tu frontend
+    origin: process.env.FRONT_URL, 
     methods: ['GET', 'POST'],
     credentials: true,  // Permite que las cookies se envíen
   }
