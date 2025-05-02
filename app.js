@@ -6,9 +6,14 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin:'https://chat-xi-ten-65.vercel.app',
+    origin: 'https://chat-xi-ten-65.vercel.app',
     credentials: true,
 }))
+
+// check route
+app.get("/", (req, res) => {
+    res.send("OK");
+});
 
 // Middlewares
 app.use(express.json());
