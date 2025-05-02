@@ -5,6 +5,7 @@ import app from './app.js';
 import { socketHandlers } from './routes/socketRoutes.js';
 
 const port = process.env.PORT || 3000;
+console.log(process.env.FRONT_URL)
 const server = http.createServer(app);
 const io = new Server(server,{
   cors: {
